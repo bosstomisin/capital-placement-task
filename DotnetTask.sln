@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetTask", "DotnetTask\DotnetTask.csproj", "{2CABB4C6-DB54-4949-B6FF-81A85FF54882}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetTask", "DotnetTask\DotnetTask.csproj", "{2CABB4C6-DB54-4949-B6FF-81A85FF54882}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetTask.Domain", "DotnetTask.Domain\DotnetTask.Domain.csproj", "{D343DAC5-0B40-4C6B-BDC9-7010C792C163}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetTask.Core", "DotnetTask.Core\DotnetTask.Core.csproj", "{E185468C-B77E-4066-B54F-3BCE9E72AED6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{2CABB4C6-DB54-4949-B6FF-81A85FF54882}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CABB4C6-DB54-4949-B6FF-81A85FF54882}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CABB4C6-DB54-4949-B6FF-81A85FF54882}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D343DAC5-0B40-4C6B-BDC9-7010C792C163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D343DAC5-0B40-4C6B-BDC9-7010C792C163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D343DAC5-0B40-4C6B-BDC9-7010C792C163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D343DAC5-0B40-4C6B-BDC9-7010C792C163}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E185468C-B77E-4066-B54F-3BCE9E72AED6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E185468C-B77E-4066-B54F-3BCE9E72AED6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E185468C-B77E-4066-B54F-3BCE9E72AED6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E185468C-B77E-4066-B54F-3BCE9E72AED6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
