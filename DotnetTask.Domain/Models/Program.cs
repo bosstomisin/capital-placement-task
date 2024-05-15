@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DotnetTask.Domain.Models
 {
-    public class Program
+    public class Program : BaseEntity
     {
         [Required]
         public string ProgramTitle { get; set; }
