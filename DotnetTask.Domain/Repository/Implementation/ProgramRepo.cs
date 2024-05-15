@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DotnetTask.Domain.Repository.Implementation
 {
-    public class ProgramRepo : BaseRepository<Program>, IProgramRepo
+    public class ProgramRepo : BaseRepository<ProgramModel>, IProgramRepo
     {
 
         public ProgramRepo(IOptions<DbConfig> dbConfig) : base(dbConfig)

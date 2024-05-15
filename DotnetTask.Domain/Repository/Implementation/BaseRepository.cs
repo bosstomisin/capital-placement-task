@@ -18,12 +18,12 @@ namespace DotnetTask.Domain.Repository.Implementation
         public BaseRepository(IOptions<DbConfig> dbConfig)
         {
             _dbConfig = dbConfig.Value;
-            cosmosClient = new CosmosClient(_dbConfig.DbCon.Endpoint, _dbConfig.DbCon.AuthKey);
+            cosmosClient = new CosmosClient(_dbConfig.DbConnection.Endpoint, _dbConfig.DbConnection.AuthKey);
         }
 
         private async Task<Container> InitializeDatabaseAndContainersAsync(string container)
         {
-            Database database = await cosmosClient.CreateDatabaseIfNotExistsAsync(_dbConfig.DbCon.DatabaseId);
+            Database database = await cosmosClient.CreateDatabaseIfNotExistsAsync(_dbConfig.DbConnection.DatabaseId);
             return await database.CreateContainerIfNotExistsAsync(container, "/id");
         }
 

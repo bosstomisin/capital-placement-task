@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DotnetTask.Domain.Repository.Interface
 {
-    public interface IProgramRepo : IBaseRepository<Program>
+    public interface IProgramRepo : IBaseRepository<ProgramModel>
     {
     }
 }

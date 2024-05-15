@@ -1,3 +1,9 @@
+using DotnetTask.Core.Services.Implementation;
+using DotnetTask.Core.Services.Interface;
+using DotnetTask.Domain.Config;
+using DotnetTask.Domain.Repository.Implementation;
+using DotnetTask.Domain.Repository.Interface;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +13,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.Configure<DbConfig>(builder.Configuration.GetSection("DbConfig"));
+
+
+builder.Services.AddScoped<IProgramRepo, ProgramRepo>();
+builder.Services.AddScoped<IProgramService, ProgramService>();
+builder.Services.AddScoped<IQuestionService, QuestionService>();
+builder.Services.AddScoped<IQuestionRepo, QuestionRepo>();
+builder.Services.AddScoped<ICandidateService, CandidateService>();
+builder.Services.AddScoped<ICandidateRepo, CandidateRepo>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -8,7 +8,7 @@ namespace DotnetTask.Domain.Config
 {
     public class DbConfig
     {
-        public DbConnection DbCon { get; set; }
+        public DbConnection DbConnection { get; set; }
         public ContainerConfig ContainerConfig { get; set; }
 
     }

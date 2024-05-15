@@ -11,7 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\DotnetTask.Core\DotnetTask.Core.csproj" />
+    <ProjectReference Include="..\DotnetTask.Domain\DotnetTask.Domain.csproj" />
   </ItemGroup>
 
 </Project>
