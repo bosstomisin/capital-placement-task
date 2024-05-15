@@ -11,6 +11,11 @@ namespace DotnetTask.Domain.Models
     {
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; } = Guid.NewGuid().ToString();
+
+        [JsonProperty(PropertyName = "dateCreated")]
         public DateTime DateCreated { get; set; } = DateTime.Now;
+
+        [JsonProperty(PropertyName = "dateUpdated")]
+        public DateTime DateUpdated { get; set; } = DateTime.Now;
     }
 }

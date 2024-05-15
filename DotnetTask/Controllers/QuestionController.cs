@@ -22,5 +22,20 @@ namespace DotnetTask.Controllers
             return StatusCode(resp.StatusCode, resp);
 
         }
+
+        [HttpPut("update-question")]
+        public async Task<IActionResult> UpdateQuestion(string id, UpdateQuestionDto request)
+        {
+            var resp = await _service.UpdateQuestion(id,request);
+            return StatusCode(resp.StatusCode, resp);
+
+        }
+        [HttpGet("get-question")]
+        public async Task<IActionResult> GetQuestion(string id)
+        {
+            var resp = await _service.GetQuestionAsync(id);
+            return StatusCode(resp.StatusCode, resp);
+
+        }
     }
 }

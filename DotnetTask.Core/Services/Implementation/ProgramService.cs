@@ -35,5 +35,14 @@ namespace DotnetTask.Core.Services.Implementation
             return new BaseResponse { Message = "Failed", StatusCode = (int)insertResponse};
 
         }
+
+        public async Task<BaseResponse> GetProgramAsync(string id)
+        {          
+            var getResponse = await _repo.GetRecordByIdAsync<ProgramModel>(id, _dbConfig.ContainerConfig.ProgramContainer);
+            if (getResponse  == null)
+                return new BaseResponse { Message = "Failed", StatusCode = (int)HttpStatusCode.NotFound};
+            return new BaseResponse { Message = "Successful!", StatusCode = (int)getResponse.StatusCode, Data = getResponse.Resource };
+
+        }
     }
 }

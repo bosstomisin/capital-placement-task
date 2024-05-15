@@ -33,6 +33,24 @@ namespace DotnetTask.Domain.Repository.Implementation
             var resp = await containerResp.UpsertItemAsync(item);
             return resp.StatusCode;
         }
+        public async Task<ItemResponse<T>> GetRecordByIdAsync<T>(string id, string containerId)
+        {
+            try
+            {
+                Container container = cosmosClient.GetContainer(_dbConfig.DbConnection.DatabaseId, containerId);
+                return await container.ReadItemAsync<T>(id, new PartitionKey(id));
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public async Task<HttpStatusCode> UpdateRecordAsync(T item, string containerId, string id)
+        {
+            Container container = cosmosClient.GetContainer(_dbConfig.DbConnection.DatabaseId, containerId);
+            var resp = await container.UpsertItemAsync(item, new PartitionKey(id));
+            return resp.StatusCode;
+        }
     }
 
 }

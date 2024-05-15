@@ -9,11 +9,8 @@ using System.Threading.Tasks;
 
 namespace DotnetTask.Core.Dto.Request
 {
-    public class AddQuestionDto
+    public class UpdateQuestionDto
     {
-        [JsonProperty(PropertyName = "programId")]
-        public string ProgramId { get; set; }
-
         [JsonProperty(PropertyName = "question")]
         public string Question { get; set; }
 
@@ -21,5 +18,6 @@ namespace DotnetTask.Core.Dto.Request
 
         [Newtonsoft.Json.JsonConverter(typeof(JsonStringEnumConverter))]
         public QuestionType QuestionType { get; set; }
+
     }
 }

@@ -12,6 +12,9 @@ namespace DotnetTask.Core.Services.Interface
     public interface IQuestionService
     {
         Task<BaseResponse> InsertQuestionAsync(AddQuestionDto item);
+        Task<BaseResponse> UpdateQuestion(string id, UpdateQuestionDto item);
+
+        Task<BaseResponse> GetQuestionAsync(string id);
 
     }
 }

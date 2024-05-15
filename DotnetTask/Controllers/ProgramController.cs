@@ -21,5 +21,12 @@ namespace DotnetTask.Controllers
             var resp = await _service.CreateProgramAsync(request);
             return StatusCode(resp.StatusCode, resp);
         }
+
+        [HttpGet("get-program")]
+        public async Task<IActionResult> GetProgram(string id)
+        {
+            var resp = await _service.GetProgramAsync(id);
+            return StatusCode(resp.StatusCode, resp);
+        }
     }
 }
