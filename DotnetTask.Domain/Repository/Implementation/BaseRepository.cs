@@ -48,7 +48,7 @@ namespace DotnetTask.Domain.Repository.Implementation
         public async Task<HttpStatusCode> UpdateRecordAsync(T item, string containerId, string id)
         {
             Container container = cosmosClient.GetContainer(_dbConfig.DbConnection.DatabaseId, containerId);
-            var resp = await container.UpsertItemAsync(item, new PartitionKey(id));
+            var resp = await container.ReplaceItemAsync(item, id, new PartitionKey(id));
             return resp.StatusCode;
         }
     }

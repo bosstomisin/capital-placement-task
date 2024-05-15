@@ -12,6 +12,5 @@ namespace DotnetTask.Core.Services.Interface
     public interface IProgramService
     {
         Task<BaseResponse> CreateProgramAsync(AddProgramDto item);
-        Task<BaseResponse> GetProgramAsync(string id);
     }
 }

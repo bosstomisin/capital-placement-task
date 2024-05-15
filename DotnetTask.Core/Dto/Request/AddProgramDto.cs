@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,9 +11,11 @@ namespace DotnetTask.Core.Dto.Request
     public class AddProgramDto
     {
         [Required]
-        public string ProgramTitle { get; set; }
+        [JsonProperty(PropertyName = "programTitle")]
+        public string? ProgramTitle { get; set; }
 
+        [JsonProperty(PropertyName = "programDescription")]
         [Required]
-        public string ProgramDescription { get; set; }
+        public string? ProgramDescription { get; set; }
     }
 }

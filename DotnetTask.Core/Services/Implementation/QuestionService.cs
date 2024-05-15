@@ -31,7 +31,8 @@ namespace DotnetTask.Core.Services.Implementation
             if (getProgram == null)
                 return new BaseResponse { Message = "Program Not Found", StatusCode = (int)HttpStatusCode.NotFound };
 
-            var request = new Questions() { ProgramId = item.ProgramId,
+            var request = new Questions() {
+                ProgramId = item.ProgramId,
                 Question = item.Question,
                 QuestionType = item.QuestionType.ToString() 
             };
@@ -63,7 +64,7 @@ namespace DotnetTask.Core.Services.Implementation
             getResponse.Resource.QuestionType = item.QuestionType.ToString();
 
             var updateResp = await _repo.UpdateRecordAsync(getResponse.Resource, _dbConfig.ContainerConfig.QuestionContainer, id);
-            if (updateResp == HttpStatusCode.Created)
+            if (updateResp == HttpStatusCode.OK)
                 return new BaseResponse { Message = "Update Successful", StatusCode = (int)updateResp };
             return new BaseResponse { Message = "Failed", StatusCode = (int)updateResp };
 
