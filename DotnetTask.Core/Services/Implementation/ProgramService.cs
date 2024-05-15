@@ -1,8 +1,10 @@
-﻿using DotnetTask.Core.Dto;
+﻿using DotnetTask.Core.Dto.Request;
 using DotnetTask.Core.Dto.Response;
 using DotnetTask.Core.Services.Interface;
+using DotnetTask.Domain.Config;
 using DotnetTask.Domain.Models;
 using DotnetTask.Domain.Repository.Interface;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +16,11 @@ namespace DotnetTask.Core.Services.Implementation
 {
     public class ProgramService : IProgramService
     {
+        private readonly DbConfig _dbConfig;
         private readonly IProgramRepo _repo;
-        public ProgramService(IProgramRepo repo)
+        public ProgramService(IOptions<DbConfig> dbConfig, IProgramRepo repo)
         {
+            _dbConfig = dbConfig.Value;
             _repo = repo;
         }
         public async Task<BaseResponse> CreateProgramAsync(AddProgramDto item)
@@ -25,10 +29,10 @@ namespace DotnetTask.Core.Services.Implementation
                 ProgramDescription = item.ProgramDescription,
                 ProgramTitle = item.ProgramTitle };
            
-            var addResponse = await _repo.InsertRecordAsync(request, "Program");
-            if (addResponse == HttpStatusCode.OK)
-                return new BaseResponse { Message = "Record Successfully Inserted", StatusCode = (int)addResponse };
-            return new BaseResponse { Message = "Record Successfully Inserted", StatusCode = (int)addResponse };
+            var insertResponse = await _repo.InsertRecordAsync(request, _dbConfig.ContainerConfig.ProgramContainer);
+            if (insertResponse == HttpStatusCode.Created)
+                return new BaseResponse { Message = "Record Successfully Inserted", StatusCode = (int)insertResponse, Data = request };
+            return new BaseResponse { Message = "Failed", StatusCode = (int)insertResponse};
 
         }
     }

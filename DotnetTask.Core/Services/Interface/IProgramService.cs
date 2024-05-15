@@ -1,4 +1,4 @@
-﻿using DotnetTask.Core.Dto;
+﻿using DotnetTask.Core.Dto.Request;
 using DotnetTask.Core.Dto.Response;
 using System;
 using System.Collections.Generic;

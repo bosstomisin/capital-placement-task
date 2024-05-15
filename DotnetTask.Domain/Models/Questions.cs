@@ -10,6 +10,6 @@ namespace DotnetTask.Domain.Models
     {
         public string PragramId { get; set; }
         public string Question { get; set; }
-        public string Questiontype { get; set; }
+        public string QuestionType { get; set; }
     }
 }

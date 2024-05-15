@@ -1,4 +1,4 @@
-﻿using DotnetTask.Core.Dto;
+﻿using DotnetTask.Core.Dto.Request;
 using DotnetTask.Core.Services.Implementation;
 using DotnetTask.Core.Services.Interface;
 using Microsoft.AspNetCore.Http;
@@ -16,7 +16,7 @@ namespace DotnetTask.Controllers
             _service = service;
         }
         [HttpPost("add-program")]
-        public async Task<IActionResult> InsertProgram(AddProgramDto request)
+        public async Task<IActionResult> AddProgram(AddProgramDto request)
         {
             var resp = await _service.CreateProgramAsync(request);
             return StatusCode(resp.StatusCode, resp);

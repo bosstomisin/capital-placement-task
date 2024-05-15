@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DotnetTask.Core.Dto
+namespace DotnetTask.Core.Dto.Request
 {
     public class AddProgramDto
     {
