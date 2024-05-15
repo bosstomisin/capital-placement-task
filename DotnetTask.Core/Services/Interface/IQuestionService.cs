@@ -13,6 +13,7 @@ namespace DotnetTask.Core.Services.Interface
     {
         Task<BaseResponse> InsertQuestionAsync(AddQuestionDto item);
         Task<BaseResponse> UpdateQuestion(string id, UpdateQuestionDto item);
+        Task<BaseResponse> DeleteQuestionAsync(string id);
 
         Task<BaseResponse> GetQuestionAsync(string id);
 

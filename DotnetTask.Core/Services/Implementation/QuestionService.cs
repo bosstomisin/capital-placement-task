@@ -43,8 +43,21 @@ namespace DotnetTask.Core.Services.Implementation
 
         }
 
- 
-    
+        public async Task<BaseResponse> DeleteQuestionAsync(string id)
+        {
+            var getProgram = await _repo.GetRecordByIdAsync<Questions>(id, _dbConfig.ContainerConfig.QuestionContainer);
+
+            if (getProgram == null)
+                return new BaseResponse { Message = "Not Found", StatusCode = (int)HttpStatusCode.NotFound };
+
+            var deleteResponse = await _repo.DeleteRecordAsync(_dbConfig.ContainerConfig.QuestionContainer, id);
+            if (deleteResponse == HttpStatusCode.NoContent)
+                return new BaseResponse { Message = "Record Successfully Deleted", StatusCode = (int)deleteResponse };
+            return new BaseResponse { Message = "Failed", StatusCode = (int)deleteResponse };
+
+        }
+
+
         public async Task<BaseResponse> GetQuestionAsync(string id)
         {
             var getResponse = await _repo.GetRecordByIdAsync<Questions>(id, _dbConfig.ContainerConfig.QuestionContainer);

@@ -37,5 +37,13 @@ namespace DotnetTask.Controllers
             return StatusCode(resp.StatusCode, resp);
 
         }
+
+        [HttpDelete("delete-question")]
+        public async Task<IActionResult> DeleteQuestion(string id)
+        {
+            var resp = await _service.DeleteQuestionAsync(id);
+            return StatusCode(resp.StatusCode, resp);
+
+        }
     }
 }

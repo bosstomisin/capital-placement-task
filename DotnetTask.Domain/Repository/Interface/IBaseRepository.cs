@@ -13,7 +13,7 @@ namespace DotnetTask.Domain.Repository.Interface
         Task<HttpStatusCode> InsertRecordAsync(T item, string container);
         Task<ItemResponse<T>> GetRecordByIdAsync<T>(string id, string containerId);
         Task<HttpStatusCode> UpdateRecordAsync(T item, string containerId, string id);
-
+        Task<HttpStatusCode> DeleteRecordAsync(string containerId, string id);
 
     }
 }

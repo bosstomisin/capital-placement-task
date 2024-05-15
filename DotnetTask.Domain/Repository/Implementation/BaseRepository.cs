@@ -51,6 +51,12 @@ namespace DotnetTask.Domain.Repository.Implementation
             var resp = await container.ReplaceItemAsync(item, id, new PartitionKey(id));
             return resp.StatusCode;
         }
+        public async Task<HttpStatusCode> DeleteRecordAsync(string containerId, string id)
+        {
+            Container container = cosmosClient.GetContainer(_dbConfig.DbConnection.DatabaseId, containerId);
+            var resp = await container.DeleteItemAsync<T>(id, new PartitionKey(id));
+            return resp.StatusCode;
+        }
     }
 
 }
